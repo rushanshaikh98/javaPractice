@@ -26,20 +26,21 @@ public class TodoManagerDay2{
 
             switch (choice) {
                 case 1:
-                    while (true){
-                        System.out.println("Please enter how many number of tasks you want to add:");
-                        no_of_tasks = Integer.parseInt(in.next());
-                        if (no_of_tasks+index>=1 && no_of_tasks+index<=10){
-                            break;
+                    System.out.println("Please enter how many number of tasks you want to add:");
+                    no_of_tasks = Integer.parseInt(in.next());
+                    if (no_of_tasks+index>=1 && no_of_tasks+index<=10){
+                        int noOfTasks = no_of_tasks+index;
+                        for (int i=index; i<noOfTasks; i++){
+                            System.out.println("Enter Task " + (i+1));
+                            taskList[i] = in.next();
+                            index+=1;
                         }
+                    }
+                    else {
                         System.out.println("You already have added " + index + " tasks today! And you can only add " + (10-index) + " tasks for today!");
                     }
-                    int noOfTasks = no_of_tasks+index;
-                    for (int i=index; i<noOfTasks; i++){
-                        System.out.println("Enter Task " + (i+1));
-                        taskList[i] = in.next();
-                        index+=1;
-                    }
+        
+                    
                     break;
                     
                 case 2:
@@ -145,7 +146,12 @@ public class TodoManagerDay2{
                         System.out.println("You do not have any task added!");
                     }
                     break;
+                
+                case 0:
+                    break;
+
                 default:
+                    System.out.println("Please enter a valid option!");
                     break;
             }
         }
